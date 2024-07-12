@@ -49,32 +49,23 @@ const EditMemberPage = () => {
   };
 
   return (
-    <section className="bg-indigo-50">
+    <section>
       <div className="container m-auto max-w-2xl py-8">
         <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
           <form onSubmit={submitForm}>
-            <h2 className="text-3xl text-center font-semibold mb-6">
+            <h2 className="form-title">
               Edit Member
-              <Link
-                to="/"
-                className="float-right text-gray-400 hover:text-gray-600"
-              >
+              <Link to="/" className="cancel-x">
                 x
               </Link>
             </h2>
 
-            <div className="mb-4">
-              <label
-                htmlFor="firstName"
-                className="block text-gray-700 font-bold mb-2"
-              >
-                First Name
-              </label>
+            <div>
+              <label htmlFor="firstName">First Name</label>
               <input
                 type="text"
                 id="firstName"
                 name="firstName"
-                className="border rounded w-full py-2 px-3"
                 placeholder="First Name"
                 value={firstName}
                 required
@@ -82,18 +73,12 @@ const EditMemberPage = () => {
               />
             </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="lastName"
-                className="block text-gray-700 font-bold mb-2"
-              >
-                Last Name
-              </label>
+            <div>
+              <label htmlFor="lastName">Last Name</label>
               <input
                 type="text"
                 id="lastName"
                 name="lastName"
-                className="border rounded w-full py-2 px-3"
                 placeholder="Last Name"
                 value={lastName}
                 required
@@ -101,18 +86,12 @@ const EditMemberPage = () => {
               />
             </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-gray-700 font-bold mb-2"
-              >
-                Email
-              </label>
+            <div>
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                className="border rounded w-full py-2 px-3"
                 placeholder="Email address"
                 required
                 value={email}
@@ -120,18 +99,12 @@ const EditMemberPage = () => {
               />
             </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="phone"
-                className="block text-gray-700 font-bold mb-2"
-              >
-                Phone
-              </label>
+            <div>
+              <label htmlFor="phone">Phone</label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
-                className="border rounded w-full py-2 px-3"
                 placeholder="xxx-xxx-xxxx"
                 value={phone}
                 required
@@ -140,17 +113,11 @@ const EditMemberPage = () => {
               />
             </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="type"
-                className="block text-gray-700 font-bold mb-2"
-              >
-                Role
-              </label>
+            <div>
+              <label htmlFor="type">Role</label>
               <select
                 id="type"
                 name="type"
-                className="border rounded w-full py-2 px-3"
                 required
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
@@ -161,17 +128,11 @@ const EditMemberPage = () => {
             </div>
 
             <div>
-              <button
-                className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-                type="submit"
-              >
+              <button className="primary-btn" type="submit">
                 Save
               </button>
 
-              <button
-                className="ml-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-                onClick={deleteMember}
-              >
+              <button className="ml-4 danger-btn" onClick={deleteMember}>
                 Delete
               </button>
             </div>

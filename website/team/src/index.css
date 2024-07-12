@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.primary-btn{
+    @apply bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full;
+    focus:outline-none;
+    focus:shadow-outline;
+}
+
+.danger-btn{
+    @apply bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full;
+    focus:outline-none;
+    focus:shadow-outline;
+}
+
+.primary-btn-full {
+    @apply primary-btn w-full;
+}
+
+nav {
+    @apply bg-indigo-700 border-b border-indigo-500;
+}
+
+nav .active-link {
+    @apply bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2;
+}
+
+nav .inactive-link {
+    @apply text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2;
+}
+
+form h2 {
+    @apply text-3xl text-center font-semibold mb-6;
+}
+
+form .cancel-x {
+    @apply float-right text-gray-400 hover:text-gray-600;
+}
+
+form div {
+    @apply mb-4;
+}
+
+form label {
+    @apply block text-gray-700 font-bold mb-2;
+}
+
+form input {
+    @apply border rounded w-full py-2 px-3;
+}
+
+form select {
+    @apply border rounded w-full py-2 px-3;
+}
+
+section {
+    @apply bg-indigo-50;
+}

@@ -1,3 +1,9 @@
+//
+// This file defines the stroage interface for storing member information.
+//
+// Only code in this file talks to the server.
+//
+
 const getMembers = async () => {
   const response = await fetch('/server');
   return response.json();

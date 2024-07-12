@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
 
 import Spinner from "./Spinner";
 import MemberCard from "./MemberCard";
@@ -29,7 +28,7 @@ const MemberList = () => {
   }, []);
 
   return (
-    <section className="bg-blue-50 px-4 py-10">
+    <section className="px-4 py-10">
       <div className="container-xl lg:container m-auto">
         {loading ? (
           <Spinner loading={loading} />
