@@ -1,5 +1,4 @@
-
-#Django server code
+# Django server code
 
 See README.md in [server](https://github.com/rorokimdim/instawork/tree/main/server)
 
