@@ -8,6 +8,6 @@ Uses [django-ninja](https://django-ninja.dev/) and sqlite3 for database.
 
 # Website code
 
-See README.md in [website](https://github.com/rorokimdim/instawork/tree/main/website)
+See README.md in [website](https://github.com/rorokimdim/instawork/tree/main/website/team)
 
 Uses react + vite + tailwindcss.
