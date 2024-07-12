@@ -4,6 +4,11 @@ Expected node version is 22+.
 
 Expected npm version is 10.5+
 
+**Important pieces**
+
+1. [storage.js](https://github.com/rorokimdim/instawork/blob/main/website/team/src/storage.js) handles talking to the server
+2. [App.jsx](https://github.com/rorokimdim/instawork/blob/main/website/team/src/App.jsx) sets up the app routes and pages.
+
 # Install dependencies
 
 ```bash

@@ -2,6 +2,11 @@
 
 Excpected python version is 3.10+.
 
+**Important pieces**
+
+1. [models.py](https://github.com/rorokimdim/instawork/blob/main/server/team/models.py)
+2. [main view/controller](https://github.com/rorokimdim/instawork/blob/main/server/team/views/member.py)
+
 **Create a python venv to use for the project**
 
 Use your favorite way to create a python virtual environment. Or do
