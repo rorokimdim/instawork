@@ -14,8 +14,8 @@ const getMember = async (id) => {
   return response.json();
 };
 
-const addMember = async (member) => {
-  await fetch("/server", {
+const addMember = (member) => {
+  return fetch("/server", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,14 +24,14 @@ const addMember = async (member) => {
   });
 };
 
-const deleteMember = async (id) => {
-  await fetch(`/server/${id}`, {
+const deleteMember = (id) => {
+  return fetch(`/server/${id}`, {
     method: "DELETE",
   });
 };
 
-const updateMember = async (member) => {
-  await fetch(`/server/${member.id}`, {
+const updateMember = (member) => {
+  return fetch(`/server/${member.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

@@ -27,11 +27,20 @@ const EditMemberPage = () => {
       role,
     };
 
-    storage.updateMember(member);
-
-    toast.success("Member Updated");
-
-    return navigate("/");
+    storage.updateMember(member).then((response) => {
+      switch (response.status) {
+        case 200:
+          toast.success("Member Updated");
+          return navigate("/");
+        case 400:
+          response.json().then((message) => {
+            toast.error(message.error);
+          });
+          break;
+        default:
+          toast.error("Could not update. An unexpected error occurred.");
+      }
+    });
   };
 
   const deleteMember = (e) => {
@@ -41,11 +50,20 @@ const EditMemberPage = () => {
 
     if (!confirm) return;
 
-    storage.deleteMember(member.id);
-
-    toast.success("Member deleted");
-
-    return navigate("/");
+    storage.deleteMember(member.id).then((response) => {
+      switch (response.status) {
+        case 200:
+          toast.success("Member deleted");
+          return navigate("/");
+        case 400:
+          response.json().then((message) => {
+            toast.error(message.error);
+          });
+          break;
+        default:
+          toast.error("Could not delete. An unexpected error occurred.");
+      }
+    });
   };
 
   return (

@@ -26,10 +26,20 @@ const AddPage = () => {
       role,
     };
 
-    storage.addMember(member);
-    toast.success("Member Added");
-
-    return navigate("/");
+    storage.addMember(member).then((response) => {
+      switch (response.status) {
+        case 200:
+          toast.success("Member Added");
+          return navigate("/");
+        case 400:
+          response.json().then((message) => {
+            toast.error(message.error);
+          });
+          break;
+        default:
+          toast.error("Could not add. An unexpected error occurred.");
+      }
+    });
   };
 
   return (
