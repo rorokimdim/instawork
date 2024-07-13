@@ -9,9 +9,8 @@ const getMembers = async () => {
   return response.json();
 }
 
-const getMember = async (id) => {
-  const response = await fetch(`/server/${id}`);
-  return response.json();
+const getMember = (id) => {
+  return fetch(`/server/${id}`);
 };
 
 const addMember = (member) => {

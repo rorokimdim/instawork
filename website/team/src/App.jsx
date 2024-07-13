@@ -13,7 +13,14 @@ import NotFoundPage from "./pages/NotFoundPage";
 import storage from "./storage.js";
 
 const memberLoader = async ({ params }) => {
-  return storage.getMember(params.id);
+  const response = await storage.getMember(params.id);
+  if (response.status == 200) {
+    return response.json();
+  } else if (response.status == 404 || response.status == 422) {
+    return { error: "Member not found" };
+  } else {
+    return { error: "An unexpected error occurred: status " + response.status };
+  }
 };
 
 const App = () => {

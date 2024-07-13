@@ -2,10 +2,13 @@ import { useState } from "react";
 import { useLoaderData, Link, useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import NotFoundPage from "./NotFoundPage.jsx";
+
 import storage from "../storage.js";
 
 const EditMemberPage = () => {
   const member = useLoaderData();
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -14,6 +17,10 @@ const EditMemberPage = () => {
   const [email, setEmail] = useState(member.email);
   const [phone, setPhone] = useState(member.phone);
   const [role, setRole] = useState(member.role);
+
+  if (member.error) {
+    return <NotFoundPage message={member.error}></NotFoundPage>;
+  }
 
   const submitForm = (e) => {
     e.preventDefault();
