@@ -3,6 +3,7 @@ import { useLoaderData, Link, useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import NotFoundPage from "./NotFoundPage.jsx";
+import ServerErrorPage from "./ServerErrorPage.jsx";
 
 import storage from "../storage.js";
 
@@ -19,7 +20,11 @@ const EditMemberPage = () => {
   const [role, setRole] = useState(member.role);
 
   if (member.error) {
-    return <NotFoundPage message={member.error}></NotFoundPage>;
+    if (member.status == 404) {
+      return <NotFoundPage message={member.error} />;
+    } else {
+      return <ServerErrorPage message={member.error} status={member.status} />;
+    }
   }
 
   const submitForm = (e) => {
@@ -34,18 +39,12 @@ const EditMemberPage = () => {
       role,
     };
 
-    storage.updateMember(member).then((response) => {
-      switch (response.status) {
-        case 200:
-          toast.success("Member Updated");
-          return navigate("/");
-        case 400:
-          response.json().then((message) => {
-            toast.error(message.error);
-          });
-          break;
-        default:
-          toast.error("Could not update. An unexpected error occurred.");
+    storage.updateMember(member).then(([_, error]) => {
+      if (!error) {
+        toast.success("Member Updated");
+        return navigate("/");
+      } else {
+        toast.error(error);
       }
     });
   };
@@ -57,18 +56,12 @@ const EditMemberPage = () => {
 
     if (!confirm) return;
 
-    storage.deleteMember(member.id).then((response) => {
-      switch (response.status) {
-        case 200:
-          toast.success("Member deleted");
-          return navigate("/");
-        case 400:
-          response.json().then((message) => {
-            toast.error(message.error);
-          });
-          break;
-        default:
-          toast.error("Could not delete. An unexpected error occurred.");
+    storage.deleteMember(member.id).then(([_, error]) => {
+      if (!error) {
+        toast.success("Member deleted");
+        return navigate("/");
+      } else {
+        toast.error(error);
       }
     });
   };
