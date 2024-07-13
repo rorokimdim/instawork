@@ -26,7 +26,7 @@ const AddPage = () => {
       role,
     };
 
-    storage.addMember(member).then(([_, error]) => {
+    storage.addMember(member).then(([_, error, _status]) => {
       if (!error) {
         toast.success("Member Added");
         return navigate("/");
