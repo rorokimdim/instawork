@@ -39,7 +39,7 @@ const EditMemberPage = () => {
       role,
     };
 
-    storage.updateMember(member).then(([_, error]) => {
+    storage.updateMember(member).then(([_, error, _status]) => {
       if (!error) {
         toast.success("Member Updated");
         return navigate("/");
@@ -56,7 +56,7 @@ const EditMemberPage = () => {
 
     if (!confirm) return;
 
-    storage.deleteMember(member.id).then(([_, error]) => {
+    storage.deleteMember(member.id).then(([_, error, _status]) => {
       if (!error) {
         toast.success("Member deleted");
         return navigate("/");
